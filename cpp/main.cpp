@@ -1,52 +1,9 @@
 #include <iostream>
-#include <deque>
 #include <chrono>
+#include "loop.h"
+#include "average.h"
 using namespace std;
 using namespace chrono;
-
-class AVERAGE
-{
-public:
-    static double CALCULATE(deque<int> nums)
-    {
-        double sum = 0;
-        int j = 0;
-        do
-        {
-            sum += nums[j];
-            j++;
-        } while (j < nums.size());
-        return sum / nums.size();
-    }
-};
-
-class LOOP
-{
-public:
-    static void DO_LOOP_1MILL_TIMES()
-    {
-        int i = 0;
-        do
-        {
-            i++;
-        } while (i < 1000000);
-    }
-    static void WHILE_LOOP_1MILL_TIMES()
-    {
-        int i = 0;
-        while (i < 1000000)
-        {
-            i++;
-        }
-    }
-    static void FOR_LOOP_1MILL_TIMES()
-    {
-        for (int i = 0; i < 1000000; i++)
-        {
-            ;
-        }
-    }
-};
 
 int main()
 {
