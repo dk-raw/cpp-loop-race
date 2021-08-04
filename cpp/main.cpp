@@ -7,11 +7,11 @@ using namespace chrono;
 
 int main()
 {
+    deque<int> LOOP_TIMES = {};
+    int i = 0;
     cout << endl
          << endl
          << "DO WHILE LOOP 1 MILLION TIMES" << endl;
-    deque<int> LOOP_TIMES = {};
-    int i = 0;
     do
     {
         auto start = high_resolution_clock::now();

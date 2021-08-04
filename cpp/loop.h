@@ -11,15 +11,15 @@ public:
     }
     static void WHILE_LOOP_1MILL_TIMES()
     {
-        int i = 0;
-        while (i < 1000000)
+        int j = 0;
+        while (j < 1000000)
         {
-            i++;
+            j++;
         }
     }
     static void FOR_LOOP_1MILL_TIMES()
     {
-        for (int i = 0; i < 1000000; i++)
+        for (int k = 0; k < 1000000; k++)
         {
             ;
         }
