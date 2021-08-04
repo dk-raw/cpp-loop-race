@@ -4,15 +4,21 @@
 using namespace std;
 using namespace chrono;
 
-int AVERAGE(deque<int> nums)
+class AVERAGE
 {
-    int sum = 0;
-    int j = 0;
-    do
-        sum += nums[j];
-    while (j < nums.size());
-    return sum / nums.size();
-}
+public:
+    static double CALCULATE(deque<int> nums)
+    {
+        double sum = 0;
+        int j = 0;
+        do
+        {
+            sum += nums[j];
+            j++;
+        } while (j < nums.size());
+        return sum / nums.size();
+    }
+};
 
 class LOOP
 {
@@ -44,7 +50,10 @@ public:
 
 int main()
 {
-    cout << endl << endl << "DO WHILE LOOP 1 MILLION TIMES" << endl;
+    cout << endl
+         << endl
+         << "DO WHILE LOOP 1 MILLION TIMES" << endl;
+    deque<int> LOOP_TIMES = {};
     int i = 0;
     do
     {
@@ -52,15 +61,20 @@ int main()
         LOOP::DO_LOOP_1MILL_TIMES();
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(stop - start);
-        switch (i)
-        {
-        case 10:
+        LOOP_TIMES.push_front(duration.count());
+        if (i == 9)
             cout << duration.count() << endl;
-        }
-        cout << duration.count() << "," << endl;
+        else
+            cout << duration.count() << "," << endl;
         i++;
     } while (i < 10);
-    cout << endl << endl << "WHILE LOOP 1 MILLION TIMES" << endl;
+    cout << "AVERAGE:" << AVERAGE::CALCULATE(LOOP_TIMES) << endl;
+
+    cout << endl
+         << endl
+         << "WHILE LOOP 1 MILLION TIMES" << endl;
+
+    LOOP_TIMES.clear();
     i = 0;
     do
     {
@@ -68,15 +82,20 @@ int main()
         LOOP::WHILE_LOOP_1MILL_TIMES();
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(stop - start);
-        switch (i)
-        {
-        case 10:
+        LOOP_TIMES.push_front(duration.count());
+        if (i == 9)
             cout << duration.count() << endl;
-        }
-        cout << duration.count() << "," << endl;
+        else
+            cout << duration.count() << "," << endl;
         i++;
     } while (i < 10);
-    cout << endl << endl << "FOR LOOP 1 MILLION TIMES" << endl;
+    cout << "AVERAGE:" << AVERAGE::CALCULATE(LOOP_TIMES) << endl;
+
+    cout << endl
+         << endl
+         << "FOR LOOP 1 MILLION TIMES" << endl;
+
+    LOOP_TIMES.clear();
     i = 0;
     do
     {
@@ -84,12 +103,12 @@ int main()
         LOOP::WHILE_LOOP_1MILL_TIMES();
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(stop - start);
-        switch (i)
-        {
-        case 10:
+        LOOP_TIMES.push_front(duration.count());
+        if (i == 9)
             cout << duration.count() << endl;
-        }
-        cout << duration.count() << "," << endl;
+        else
+            cout << duration.count() << "," << endl;
         i++;
     } while (i < 10);
+    cout << "AVERAGE:" << AVERAGE::CALCULATE(LOOP_TIMES) << endl;
 }
